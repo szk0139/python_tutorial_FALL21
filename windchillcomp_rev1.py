@@ -1,6 +1,8 @@
 # python script name without .py extension and then the function name
 
 from readdata import read_data
+from printing import print_comparison
+from computation import compute_windchill 
 
 #Column names and column indices to read
 
@@ -17,15 +19,15 @@ data = read_data(columns, types=types)
 
 # compute the wind chill temperature
 
-def compute_windchill(t, v):
-    a = 35.74
-    b = 0.6215
-    c = 35.75
-    d = 0.4275
+#def compute_windchill(t, v):
+#    a = 35.74
+#    b = 0.6215
+#    c = 35.75
+#    d = 0.4275
     
-    v16 = v ** 0.16
-    wci = a + (b*t)-(c*v16)+(d*t*v16)
-    return wci
+#    v16 = v ** 0.16
+#    wci = a + (b*t)-(c*v16)+(d*t*v16)
+#    return wci
 
 
 
@@ -47,16 +49,15 @@ for temp, windspeed in zip(data['tempout'], data['windspeed']):
 
 
 # output comparision data
-print('              ORIGINAL   COMPUTED')
-print(' DATE   TIME  WINDCHILL  WINDCHILL DIFFERENCE')
-print('------- ------ --------- --------- ----------')
+#print('              ORIGINAL   COMPUTED')
+#print(' DATE   TIME  WINDCHILL  WINDCHILL DIFFERENCE')
+#print('------- ------ --------- --------- ----------')
+#zip_data = zip(data['date'], data['time'], data['windchill'], windchill)
+#for date, time, wc_orig, wc_comp in zip_data:
+#    wc_diff = wc_orig - wc_comp
+#    print(f'{date} {time:>6} {wc_orig:9.6f} {wc_comp:9.6f} {wc_diff:10.6f}')
 
-zip_data = zip(data['date'], data['time'], data['windchill'], windchill)
-for date, time, wc_orig, wc_comp in zip_data:
-    wc_diff = wc_orig - wc_comp
-    print(f'{date} {time:>6} {wc_orig:9.6f} {wc_comp:9.6f} {wc_diff:10.6f}')
-
-
+print_comparison('WINDCHILL', data['date'], data['time'], data['windchill'], windchill)
              
 
 
