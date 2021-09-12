@@ -1,7 +1,7 @@
 
-from readdata import read_data
-from printing import print_comparison
-from computation import compute_heatindex
+from mysciW4.readdata import read_data
+from mysciW4.printing import print_comparison
+from mysciW4.computation import compute_heatindex
 
 #Column names and column indices to read
 
