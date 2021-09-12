@@ -54,7 +54,7 @@ def compute_heatindex(t, hum):
 
 
 
-def compute_dwpoint(t, h):
+def compute_dewpoint(t, h):
     """
     Compute the dew point temperature given the temperature and humidity
     Parameters:
